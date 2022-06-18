@@ -37,7 +37,7 @@ public class Book {
     private String publisher;
 
     @Column(name = "publication_Year")
-    private String publicationYear;
+    private Integer publicationYear;
 
     @Column(name = "summary")
     private String summary;
