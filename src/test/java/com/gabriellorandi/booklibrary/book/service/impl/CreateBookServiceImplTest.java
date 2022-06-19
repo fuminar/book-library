@@ -20,6 +20,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
@@ -86,7 +87,10 @@ class CreateBookServiceImplTest {
         verify(eBookRepository, never()).save(any());
 
         // Author
-        verify(authorRepository).save(authorArgumentCaptor.capture());
+        verify(authorRepository, times(2)).save(authorArgumentCaptor.capture());
+        var savedAuthors = authorArgumentCaptor.getAllValues();
+        savedAuthors.forEach(author -> assertTrue(author.getName().equals("Author 1") || author.getName().equals("Author 2")));
+
     }
 
 }
