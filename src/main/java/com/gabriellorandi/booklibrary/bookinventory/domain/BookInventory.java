@@ -17,11 +17,10 @@ public class BookInventory {
     @GeneratedValue
     private UUID id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "book_id", referencedColumnName = "id")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "bookInventory")
     private Book book;
 
     @Column(name = "quantity")
-    private String quantity;
+    private Long quantity;
 
 }

@@ -1,10 +1,11 @@
 package com.gabriellorandi.booklibrary.author.domain;
 
-import com.gabriellorandi.booklibrary.book.domain.Book;
 import lombok.*;
 
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.UUID;
 
 @Getter
@@ -20,13 +21,5 @@ public class Author {
 
     @Column(name = "name")
     private String name;
-
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            },
-            mappedBy = "authors")
-    private Set<Book> books;
 
 }
