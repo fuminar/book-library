@@ -1,6 +1,7 @@
 package com.gabriellorandi.booklibrary.book.domain;
 
 import com.gabriellorandi.booklibrary.author.domain.Author;
+import com.gabriellorandi.booklibrary.book.application.dto.CreateBookRequest;
 import com.gabriellorandi.booklibrary.bookinventory.domain.BookInventory;
 import lombok.*;
 
@@ -50,5 +51,16 @@ public class Book {
             })
     @JoinColumn(name = "book_inventory", referencedColumnName = "id")
     private BookInventory bookInventory;
+
+    public static Book from(CreateBookRequest request, Set<Author> authors) {
+        return new Book(null,
+                request.getBookName(),
+                authors,
+                request.getPublisher(),
+                request.getPublicationYear(),
+                request.getSummary(),
+                new BookInventory(null, 1L)
+        );
+    }
 
 }

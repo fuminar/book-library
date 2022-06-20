@@ -1,11 +1,11 @@
 package com.gabriellorandi.booklibrary.book.application.dto;
 
+import com.gabriellorandi.booklibrary.book.enums.BookType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -17,14 +17,6 @@ public class CreateBookResponse {
 
     private String bookName;
 
-    private List<String> authorNames;
-
-    private String publisher;
-
-    private Integer publicationYear;
-
-    private String summary;
-
-    private String fileFormat;
+    private BookType bookType;
 
 }

@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.util.Strings;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -31,4 +32,7 @@ public class CreateBookRequest {
 
     private String fileFormat;
 
+    public boolean isEBook() {
+        return Strings.isNotBlank(fileFormat);
+    }
 }

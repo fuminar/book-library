@@ -1,9 +1,11 @@
 package com.gabriellorandi.booklibrary.bookinventory.domain;
 
-import com.gabriellorandi.booklibrary.book.domain.Book;
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.UUID;
 
 @Getter
@@ -16,9 +18,6 @@ public class BookInventory {
     @Setter
     @GeneratedValue
     private UUID id;
-
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "bookInventory")
-    private Book book;
 
     @Column(name = "quantity")
     private Long quantity;
