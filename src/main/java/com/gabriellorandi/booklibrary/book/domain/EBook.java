@@ -1,7 +1,7 @@
 package com.gabriellorandi.booklibrary.book.domain;
 
 import com.gabriellorandi.booklibrary.author.domain.Author;
-import com.gabriellorandi.booklibrary.book.application.dto.CreateBookRequest;
+import com.gabriellorandi.booklibrary.book.application.dto.BookRequest;
 import com.gabriellorandi.booklibrary.bookinventory.domain.BookInventory;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -27,14 +27,14 @@ public class EBook extends Book {
         this.fileFormat = fileFormat;
     }
 
-    public static EBook from(CreateBookRequest request, Set<Author> authors) {
+    public static EBook from(BookRequest request, Set<Author> authors) {
         return new EBook(null,
                 request.getBookName(),
                 authors,
                 request.getPublisher(),
                 request.getPublicationYear(),
                 request.getSummary(),
-                new BookInventory(null, 1L),
+                new BookInventory(null, 1L, null),
                 request.getFileFormat());
     }
 

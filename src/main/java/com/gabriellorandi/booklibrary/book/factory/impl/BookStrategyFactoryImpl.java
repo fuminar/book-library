@@ -21,15 +21,7 @@ public class BookStrategyFactoryImpl implements BookStrategyFactory {
     }
 
     @Override
-    public BookStrategy findStrategy(boolean isEbook) {
-        BookType bookType;
-
-        if (isEbook) {
-            bookType = BookType.E_BOOK;
-        } else {
-            bookType = BookType.BOOK;
-        }
-
+    public BookStrategy findStrategy(BookType bookType) {
         return strategies.get(bookType);
     }
 

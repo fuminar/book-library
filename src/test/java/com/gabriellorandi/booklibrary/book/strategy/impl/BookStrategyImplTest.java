@@ -1,7 +1,7 @@
 package com.gabriellorandi.booklibrary.book.strategy.impl;
 
 import com.gabriellorandi.booklibrary.author.domain.Author;
-import com.gabriellorandi.booklibrary.book.application.dto.CreateBookRequest;
+import com.gabriellorandi.booklibrary.book.application.dto.BookRequest;
 import com.gabriellorandi.booklibrary.book.domain.Book;
 import com.gabriellorandi.booklibrary.book.repository.BookRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -32,7 +32,7 @@ class BookStrategyImplTest {
     Book book;
 
     @Mock
-    CreateBookRequest request;
+    BookRequest request;
 
     @Mock
     Set<Author> authors;

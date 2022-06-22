@@ -1,7 +1,7 @@
 package com.gabriellorandi.booklibrary.book.domain;
 
 import com.gabriellorandi.booklibrary.author.domain.Author;
-import com.gabriellorandi.booklibrary.book.application.dto.CreateBookRequest;
+import com.gabriellorandi.booklibrary.book.application.dto.BookRequest;
 import com.gabriellorandi.booklibrary.bookinventory.domain.BookInventory;
 import lombok.*;
 
@@ -45,21 +45,18 @@ public class Book {
     @Column(name = "summary")
     private String summary;
 
-    @OneToOne(fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST
-            })
-    @JoinColumn(name = "book_inventory", referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_inventory_id", referencedColumnName = "id")
     private BookInventory bookInventory;
 
-    public static Book from(CreateBookRequest request, Set<Author> authors) {
+    public static Book from(BookRequest request, Set<Author> authors) {
         return new Book(null,
                 request.getBookName(),
                 authors,
                 request.getPublisher(),
                 request.getPublicationYear(),
                 request.getSummary(),
-                new BookInventory(null, 1L)
+                new BookInventory(null, 1L, null)
         );
     }
 

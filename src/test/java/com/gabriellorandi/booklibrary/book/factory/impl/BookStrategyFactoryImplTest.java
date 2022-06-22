@@ -40,14 +40,14 @@ class BookStrategyFactoryImplTest {
     @Test
     @DisplayName("Find Strategy test, eBook")
     void testFindStrategy() {
-        BookStrategy strategy = suite.findStrategy(true);
+        BookStrategy strategy = suite.findStrategy(BookType.E_BOOK);
         Assertions.assertEquals(strategy.getBookType(), BookType.E_BOOK);
     }
 
     @Test
     @DisplayName("Find Strategy test, Book")
     void testFindStrategy2() {
-        BookStrategy strategy = suite.findStrategy(false);
+        BookStrategy strategy = suite.findStrategy(BookType.BOOK);
         Assertions.assertEquals(strategy.getBookType(), BookType.BOOK);
     }
 

@@ -10,5 +10,6 @@ import java.util.UUID;
 
 @Repository
 public interface EBookRepository extends JpaRepository<EBook, UUID> {
-    boolean existsByNameAndAuthors(String name, Set<Author> authors);
+    boolean existsByNameAndAuthorsIn(String name, Set<Author> authors);
 }
+

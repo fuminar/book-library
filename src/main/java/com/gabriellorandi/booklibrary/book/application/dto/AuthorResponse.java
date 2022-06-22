@@ -1,6 +1,5 @@
 package com.gabriellorandi.booklibrary.book.application.dto;
 
-import com.gabriellorandi.booklibrary.book.enums.BookType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,12 +10,7 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
-public class CreateBookResponse {
-
-    private UUID bookId;
-
-    private String bookName;
-
-    private BookType bookType;
-
+public class AuthorResponse {
+    private UUID id;
+    private String name;
 }

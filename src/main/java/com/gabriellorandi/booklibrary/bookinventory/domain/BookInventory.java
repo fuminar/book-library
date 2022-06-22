@@ -1,11 +1,10 @@
 package com.gabriellorandi.booklibrary.bookinventory.domain;
 
+import com.gabriellorandi.booklibrary.book.domain.Book;
+import com.gabriellorandi.booklibrary.bookinventory.enums.InventoryOperationType;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Getter
@@ -21,5 +20,27 @@ public class BookInventory {
 
     @Column(name = "quantity")
     private Long quantity;
+
+    @OneToOne(mappedBy = "bookInventory")
+    private Book book;
+
+    public boolean isPositive() {
+        return quantity >= 0;
+    }
+
+    public boolean isNotEmpty() {
+        return quantity != 0;
+    }
+
+    public void updateQuantity(InventoryOperationType operationType, Long amount) {
+        switch (operationType) {
+            case ADD:
+                quantity = quantity + amount;
+                break;
+            case REMOVE:
+                quantity = quantity - amount;
+                break;
+        }
+    }
 
 }

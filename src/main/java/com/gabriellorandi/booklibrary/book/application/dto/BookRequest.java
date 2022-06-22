@@ -1,5 +1,6 @@
 package com.gabriellorandi.booklibrary.book.application.dto;
 
+import com.gabriellorandi.booklibrary.book.enums.BookType;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor
-public class CreateBookRequest {
+public class BookRequest {
 
     @NotBlank(message = "{book.name.notBlank}")
     private String bookName;
@@ -34,5 +35,9 @@ public class CreateBookRequest {
 
     public boolean isEBook() {
         return Strings.isNotBlank(fileFormat);
+    }
+
+    public BookType getBookType() {
+        return isEBook() ? BookType.E_BOOK : BookType.BOOK;
     }
 }
