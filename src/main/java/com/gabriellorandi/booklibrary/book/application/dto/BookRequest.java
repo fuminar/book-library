@@ -26,7 +26,7 @@ public class BookRequest {
     @NotBlank(message = "{book.publisher.notBlank}")
     private String publisher;
 
-    @Positive(message = "{book.publisher.positive}")
+    @Positive(message = "{book.publicationYear.positive}")
     private Integer publicationYear;
 
     private String summary;
